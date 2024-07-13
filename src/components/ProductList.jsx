@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Product from "./Product";
-import axios from 'axios';
+import axios from "axios";
 
 // const products = {
 //   dailyPick: [
@@ -9,7 +9,7 @@ import axios from 'axios';
 //         name: "Cooperate Office Shirt",
 //         price: 200,
 //         quantity: 1,
-//         imageUrl: "./Images/cooperateofficeshirt.jpeg",        
+//         imageUrl: "./Images/cooperateofficeshirt.jpeg",
 //     },
 //     {
 //       id: 2,
@@ -26,10 +26,10 @@ import axios from 'axios';
 //       price: 200,
 //     },
 //     { id: 4,
-//         name: "Sweat Jacket", 
+//         name: "Sweat Jacket",
 //         quantity: 1,
 //         imageUrl: "./Images/sweatjacket.jpeg",
-//         price: 200, 
+//         price: 200,
 //     },
 //     { id: 5, name: "Cooperate Office Shirt", quantity: 1, imageUrl: "./Images/cooperativeofficeshirt.jpeg", price: 200 },
 //     { id: 6, name: "Men Jean Jacket", quantity: 1, imageUrl: "./Images/menjeanjacket.jpeg",price: 200 },
@@ -58,66 +58,94 @@ import axios from 'axios';
 //   ],
 // };
 const ProductList = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-  
-    useEffect(() => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
     //   const apiEndpoint = 'https://api.timbu.cloud/products?organization_id=88d9c1d1ecf64488931bf3f3be33d124&reverse_sort=false&page=2&size=10&Appid=8E3LRUT6KN1GPB7&Apikey=e00af33db0f64d369d1543f9de758d5720240713094425828146';
-        const apiEndpoint = 'https://timbu-get-all-products.reavdev.workers.dev/?organization_id=88d9c1d1ecf64488931bf3f3be33d124&reverse_sort=false&page=1&size=10&Appid=8E3LRUT6KN1GPB7&Apikey=e00af33db0f64d369d1543f9de758d5720240713094425828146'
+    const apiEndpoint =
+      "https://timbu-get-all-products.reavdev.workers.dev/?organization_id=88d9c1d1ecf64488931bf3f3be33d124&reverse_sort=false&page=1&size=12&Appid=8E3LRUT6KN1GPB7&Apikey=e00af33db0f64d369d1543f9de758d5720240713094425828146";
 
-      axios.get(apiEndpoint)
-        .then(response => {
-          setProducts(response.data.products);
-          setLoading(false);
-        })
-        .catch(error => {
-          setError(error);
-          setLoading(false);
-        });
-    }, []);
+    axios
+      .get(apiEndpoint)
+      .then((response) => {
+        setProducts(response.data.items);
+        console.log(response.data.items);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  }, []);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error loading products</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading products</p>;
 
-// function ProductList({ addToCart }) {
-//     return (
-//       <div className="product-list">
-//         <div className="product-category">
-//           <h3 className="category-title">Daily Pick</h3>
-//           <button className="seemorebtn">See More</button>
-//           <div className="product-row">
-//             {products.dailyPick.map((product) => (
-//               <Product key={product.id} product={product} addToCart={addToCart} />
-//             ))}
-//           </div>
-//         </div>
-//         <div className="product-category">
-//           <h3 className="category-title">Ladies Love</h3>
-//           <button className="seemorebtn">See More</button>
-//           <div className="product-row">
-//             {products.ladiesLove.map((product) => (
-//               <Product key={product.id} product={product} addToCart={addToCart} />
-//             ))}
-//           </div>
-//         </div>
-//         <div className="product-category">
-//           <h3 className="category-title">For Men</h3>
-//           <button className="seemorebtn">See More</button>
-//           <div className="product-row">
-//             {products.forMen.map((product) => (
-//               <Product key={product.id} product={product} addToCart={addToCart} />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     );
-//  }
-return (
+  // function ProductList({ addToCart }) {
+  //     return (
+  //       <div className="product-list">
+  //         <div className="product-category">
+  //           <h3 className="category-title">Daily Pick</h3>
+  //           <button className="seemorebtn">See More</button>
+  //           <div className="product-row">
+  //             {products.dailyPick.map((product) => (
+  //               <Product key={product.id} product={product} addToCart={addToCart} />
+  //             ))}
+  //           </div>
+  //         </div>
+  //         <div className="product-category">
+  //           <h3 className="category-title">Ladies Love</h3>
+  //           <button className="seemorebtn">See More</button>
+  //           <div className="product-row">
+  //             {products.ladiesLove.map((product) => (
+  //               <Product key={product.id} product={product} addToCart={addToCart} />
+  //             ))}
+  //           </div>
+  //         </div>
+  //         <div className="product-category">
+  //           <h3 className="category-title">For Men</h3>
+  //           <button className="seemorebtn">See More</button>
+  //           <div className="product-row">
+  //             {products.forMen.map((product) => (
+  //               <Product key={product.id} product={product} addToCart={addToCart} />
+  //             ))}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     );
+  //  }
+  return (
     <div className="product-list">
       <h2>Daily Pick</h2>
       <div className="product-cards">
-        {products.map(product => (
+        {products.map((product) => (
+          <div key={product.id} className="product-card">
+            <img src={product.imageUrl} alt={product.name} />
+            <h3>{product.name}</h3>
+            <p>Price: ${product.price}</p>
+            <button>Add to Cart</button>
+          </div>
+        ))}
+      </div>
+      <h2>Ladies Love</h2>
+      <div className="product-cards">
+        {products.map((product) => (
+          <div key={product.id} className="product-card">
+            <img src={product.imageUrl} alt={product.name} />
+            {/* <img src="{`https://api.timbu.cloud/images/${item.photos[0].url}`}" /> */}
+            {/* <img src="{`https://api.timbu.cloud/images/${imageUrl}`}" /> */}
+            {/* <img src="{`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name}"/> */}
+            <h3>{product.name}</h3>
+            <p>Price: ${product.price}</p>
+            <button>Add to Cart</button>
+          </div>
+        ))}
+      </div>
+      <h2>For Men</h2>
+      <div className="product-cards">
+        {products.map((product) => (
           <div key={product.id} className="product-card">
             <img src={product.imageUrl} alt={product.name} />
             <h3>{product.name}</h3>

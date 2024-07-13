@@ -7,7 +7,6 @@ const PaymentModal = ({ isOpen, onClose, onPaymentSuccess }) => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      // Simulate a successful payment
       onPaymentSuccess();
     };
   

@@ -1,6 +1,9 @@
 body{
   /* margin: 0%; */
   font-family: "Open Sans", sans-serif;;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 .App {
@@ -27,7 +30,8 @@ body{
   justify-content: space-between;
   align-items: center; 
   margin-top: 10px;
-  padding: 10px 0;
+  padding: 10px 20px;
+
 }
 
 .nav-left {
@@ -89,7 +93,6 @@ body{
 .logout-icon{
   color: #ccc;
 }
-/* nav bar styling ends */
 
 /* styling for contents of the hero page */
 .content{
@@ -107,7 +110,6 @@ body{
   margin-top: 0 !important;
 }
 
-/* styling for contents of the hero page ends */
 main {
   display: flex;
   justify-content: space-around;
@@ -141,6 +143,7 @@ main {
 .product-cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -149,8 +152,12 @@ main {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 16px;
-  width: calc(25% - 20px); /* Adjust based on your design */
-  box-sizing: border-box;
+  width: calc(25% - 50px); 
+  /* box-sizing: border-box; */
+  /* max-width: 200px; */
+  /* text-align: center; */
+  /* flex: 1 1 200px; */
+
 }
 
 .product-card img {
@@ -276,15 +283,15 @@ button:hover {
 }
 
 .arrow-link::before {
-  content: "←"; /* Unicode character for left arrow */
-  margin-right: 8px; /* Space between arrow and text */
-  color: inherit; /* Inherit color from the anchor */
-  font-size: inherit; /* Inherit font size from the anchor */
+  content: "←"; 
+  margin-right: 8px; 
+  color: inherit; 
+  font-size: inherit; 
 }
 
 .arrow-link {
-  text-decoration: none; /* Remove underline */
-  color: blue; /* Anchor color */
+  /* text-decoration: none; Remove underline */
+  color: blue; 
 }
 
 .arrow-link:hover {
@@ -502,6 +509,8 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
+  max-width: 1200px;
+  align-self: center;
 }
 
 .footer-left {
@@ -594,3 +603,4 @@ button:hover {
     padding: 5px;
   }
 }
+
