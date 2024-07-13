@@ -122,9 +122,13 @@ const ProductList = () => {
       <div className="product-cards">
         {products.map((product) => (
           <div key={product.id} className="product-card">
-            <img src={product.imageUrl} alt={product.name} />
+            {/* <img src={product.imageUrl} alt={product.name} /> */}
+            <img
+              src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`}
+              alt={product.name}
+            />
             <h3>{product.name}</h3>
-            <p>Price: ${product.price}</p>
+            <p>Price: $100</p>
             <button>Add to Cart</button>
           </div>
         ))}
@@ -133,10 +137,10 @@ const ProductList = () => {
       <div className="product-cards">
         {products.map((product) => (
           <div key={product.id} className="product-card">
-            <img src={product.imageUrl} alt={product.name} />
-            {/* <img src="{`https://api.timbu.cloud/images/${item.photos[0].url}`}" /> */}
-            {/* <img src="{`https://api.timbu.cloud/images/${imageUrl}`}" /> */}
-            {/* <img src="{`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name}"/> */}
+            <img
+              src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`}
+              alt={product.name}
+            />
             <h3>{product.name}</h3>
             <p>Price: ${product.price}</p>
             <button>Add to Cart</button>
@@ -147,7 +151,11 @@ const ProductList = () => {
       <div className="product-cards">
         {products.map((product) => (
           <div key={product.id} className="product-card">
-            <img src={product.imageUrl} alt={product.name} />
+            {/* <img src={product.imageUrl} alt={product.name} /> */}
+            <img
+              src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`}
+              alt={product.name}
+            />
             <h3>{product.name}</h3>
             <p>Price: ${product.price}</p>
             <button>Add to Cart</button>
